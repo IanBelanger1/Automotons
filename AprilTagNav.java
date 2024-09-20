@@ -138,7 +138,7 @@ public class AprilTagNav extends LinearOpMode
     /** Initializes all instance variables. Carries out the robot's actions. */
     @Override
     public void runOpMode() {
-        // TODO: document the start of this
+        
         position = new Position (0.0, 0.0, 0.0);
         minPower = 0.25;
         maxPower = 0.5;
@@ -230,7 +230,9 @@ public class AprilTagNav extends LinearOpMode
                 seenTags.append(", ");
                 for (AprilTag tag : tags) {
                     if (detection.id == tag.getId()) {
-                        position = tag.robotPosition(detection.ftcPose.x * distanceMod, detection.ftcPose.y * distanceMod, detection.ftcPose.yaw * DEG_TO_RAD);
+                        position = tag.robotPosition(detection.ftcPose.x * distanceMod,
+                                detection.ftcPose.y * distanceMod,
+                                detection.ftcPose.yaw * DEG_TO_RAD);
                         goodTagsSeen = true;
                         telemetry.addData("Used tag", detection.id);
                     }
